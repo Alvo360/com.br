@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agência Marketing | Conexões</title>
+    <style>
+        /* Estilos Base */
+        :root {
+            --cor-primaria: #404040;
+            --cor-secundaria: #c0c0c0;
+            --fundo-claro: #f5f5f5;
+            --fundo-escuro: #1a1a1a;
+            --transicao: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--fundo-claro);
+            color: var(--cor-primaria);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            transition: var(--transicao);
+        }
+
+        /* REMOVA a media query original e substitua por: */
+        body.dark-mode {
+    background: var(--fundo-escuro);
+    color: #e0e0e0;
+    }
+
+    body.dark-mode .social-link {
+    border-color: #606060;
+    color: #f0f0f0;
+}
+
+body.dark-mode .icon {
+    filter: grayscale(70%) contrast(150%) brightness(120%);
+}
+
+body.dark-mode .social-link[href*="tiktok"] .icon {
+    background-color: white; /* ou outra cor visível */
+    padding: 4px;
+    border-radius: 4px;
+}
+
+body.dark-mode .newsletter input {
+    border-color: #606060;
+    color: #f0f0f0;
+}
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .logo {
+            width: 80px;
+            margin-bottom: 1rem;
+            filter: contrast(130%);
+        }
+
+        /* Dark Mode Toggle */
+        .mode-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: 1px solid var(--cor-secundaria);
+            border-radius: 20px;
+            padding: 8px;
+            cursor: pointer;
+            transition: var(--transicao);
+        }
+
+        .mode-toggle:hover {
+            background: rgba(0,0,0,0.05);
+        }
+
+        /* Links */
+        .links-container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .social-link {
+            border: 1px solid var(--cor-secundaria);
+            margin: 1rem 0;
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--cor-primaria);
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transicao);
+        }
+
+        .social-link:hover {
+            border-color: #909090;
+            transform: translateY(-2px);
+        }
+
+        .social-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background: var(--cor-primaria);
+            bottom: 10px;
+            left: 50%;
+            transition: var(--transicao);
+        }
+
+        .social-link:hover::after {
+            width: 40%;
+            left: 30%;
+        }
+
+        /* Ícones */
+        .icon {
+            width: 20px;
+            height: 20px;
+            filter: grayscale(100%) contrast(130%);
+            transition: var(--transicao);
+        }
+
+        .social-link:hover .icon {
+            filter: grayscale(50%) contrast(150%);
+            transform: scale(1.15);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            border: 1px solid var(--cor-secundaria);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 12px;
+            margin: 1rem 0;
+            border: 1px solid var(--cor-secundaria);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--cor-primaria);
+        }
+
+        .newsletter button {
+            background: var(--cor-primaria);
+            color: var(--fundo-claro);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transicao);
+        }
+
+        .newsletter button:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--cor-secundaria);
+            font-size: 0.9rem;
+        }
+        .social-link[href*="whatsapp"] {
+    position: relative;
+}
+
+.social-link[href*="whatsapp"]::before {
+    content: "🕒 09h-18h";
+    position: absolute;
+    right: 15px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <button class="mode-toggle" aria-label="Alternar Modo">
+            🌓
+        </button>
+        <img src="https://i.imgur.com/SVg4sNA.jpeg" alt="Logo Agência" class="logo">
+        <h1 style="font-weight: 350; letter-spacing: -1px;">Conecte-se Conosco</h1>
+    </div>
+    <div class="links-container">
+        <!-- Seus Links Sociais Aqui -->
+        <a href="https://wa.me/5519971259836" class="social-link" target="_blank" style="order: -1;"> <!-- order:-1 coloca no topo -->
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" class="icon" alt="WhatsApp">
+            WhatsApp 
+        </a>
+        <a href="https://www.instagram.com/alvo360/" class="social-link" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" class="icon" alt="Instagram">
+            Instagram
+            </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/profile.php?id=100079557244721" class="social-link" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" class="icon" alt="Facebook">
+                    Facebook
+                </a>
+            
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@alvo.360" class="social-link" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046128.png" class="icon" alt="TikTok">
+                    TikTok
+                </a>
+            
+                <!-- LinkedIn (Já Existente) -->
+                <a href="www.linkedin.com/in/alvo-marketing-5ba97134b" class="social-link" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111499.png" class="icon" alt="LinkedIn">
+                    LinkedIn
+                </a>
+            </div>
+
+            
+        
+
+        <!-- Newsletter -->
+        <div class="newsletter">
+            <h3>📩 Insights Estratégicos</h3>
+            <p>Receba nossa análise de mercado mensal</p>
+            <input type="email" placeholder="seu@email.com">
+            <button>Assinar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Estratégia • Criatividade • Resultados</p>
+        <p>© 2024 Alvo 360</p>
+    </footer>
+
+    <script>
+    // CORREÇÃO DO DARK MODE (Substitua o script anterior por este)
+const modeToggle = document.querySelector('.mode-toggle');
+const body = document.body;
+
+function toggleDarkMode() {
+    body.classList.toggle('dark-mode');
+    // Atualizar ícone do botão
+    modeToggle.textContent = body.classList.contains('dark-mode') ? '🌞' : '🌜';
+    // Salvar preferência
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
+
+// Inicialização correta
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+        body.classList.add('dark-mode');
+        modeToggle.textContent = '🌞';
+    } else {
+        body.classList.remove('dark-mode');
+        modeToggle.textContent = '🌜';
+    }
+}
+
+// Eventos
+modeToggle.addEventListener('click', toggleDarkMode);
+document.addEventListener('DOMContentLoaded', initTheme); // Iniciar ao carregar
+
+        // Newsletter Submit
+        document.querySelector('.newsletter button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = document.querySelector('.newsletter input').value;
+            if (email.includes('@')) {
+                alert('Obrigado por assinar nossa newsletter!');
+                document.querySelector('.newsletter input').value = '';
+            }
+        });
+
+        // Efeito de Elevação Suave
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mousemove', (e) => {
+                const rect = link.getBoundingClientRect();
+                link.style.transform = `translateY(-2px) perspective(1000px) rotateX(${(e.clientY - rect.top - rect.height/2)/10}deg) rotateY(${(e.clientX - rect.left - rect.width/2)/10}deg)`;
+            });
+
+            link.addEventListener('mouseleave', () => {
+                link.style.transform = 'translateY(0) perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
